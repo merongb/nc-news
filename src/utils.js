@@ -13,3 +13,8 @@ export function getArticleById (article_id){
         return res.data
     })
 }
+export function getCommentByArticleId(article_id){
+    return api.get(`/articles/${article_id}/comments`).then((res) => {
+        return res.data
+    })
+}
