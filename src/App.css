@@ -18,3 +18,21 @@ img {
   max-width: 300px;
   list-style: none; 
 }
+.comment-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 20px; 
+}
+
+
+.comment-card {
+  flex: 1; 
+  border: 1px solid #ccc;
+  padding: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  border-radius: 4px;
+  max-width: 300px;
+  list-style: none; 
+}
