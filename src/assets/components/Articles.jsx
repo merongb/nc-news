@@ -2,8 +2,10 @@ import { useState, useEffect } from "react";
 import { getArticles } from "../../utils";
 import { Link } from "react-router-dom";
 
+
 export default function Articles() {
   const [articles, setArticles] = useState([]);
+
 
   useEffect(() => {
     getArticles().then((response) => {
