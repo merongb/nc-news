@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { getArticles } from "../../utils";
+import { Link } from "react-router-dom";
 
 export default function Articles() {
   const [articles, setArticles] = useState([]);
@@ -7,32 +8,37 @@ export default function Articles() {
   useEffect(() => {
     getArticles().then((response) => {
       setArticles(response.articles)
-    }, [])
+    })
   }, [])
 
   return (
-    <div className="article-container">
+    <section className="article-container">
       <ul>
         {articles.map((article) => (
-            <div>
-          <li key={article.article_id} className="article-card">
+          <li key={article.article_id+article.article_img_url} className="article-card">
+          <img src={article.article_img_url} alt={article.title} />
+          <br />
             {article.title}
             <br />
-            {article.author}
+            Author - {article.author}
             <br />
-            {article.topic}
-            <br />
-            Id{article.article_id}
+            Topic: {article.topic}
             <br />
             {article.comment_count} Comments
             <br />
             {article.votes} Votes
-          </li>
-          <button>View Article</button>
+            <br />
+            Article - {article.article_id}
+            <br />
+            Published on {new Date(article.created_at).toLocaleString()}
+            <br />
+            <Link to={`/view-article/${article.article_id}`}>
+                <button>View Article</button>
+              </Link>
           <button>Edit Article</button>
-          </div>
+          </li>
         ))}
       </ul>
-    </div>
+    </section>
   );
 }

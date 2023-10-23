@@ -4,6 +4,9 @@
   flex-wrap: wrap;
   gap: 20px; 
 }
+img {
+  max-width: 250px;
+}
 
 .article-card {
   flex: 1; 
