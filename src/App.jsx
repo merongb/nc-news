@@ -6,7 +6,6 @@ import { Routes,Route } from 'react-router-dom'
 import Articles from './assets/components/Articles'
 
 function App() {
-  const [count, setCount] = useState(0)
 
 return (
 
