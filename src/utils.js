@@ -21,7 +21,6 @@ export function getCommentByArticleId(article_id){
 export function updateArticleVotes(article_id, voteType){
     const data = {inc_votes: voteType === "upvote" ? 1 : -1}
 return api.patch(`/articles/${article_id}`, data).then((res) => {
-    console.log(res.data);
     return res.data
 })
 }

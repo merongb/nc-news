@@ -5,14 +5,18 @@ import { Link } from "react-router-dom";
 
 export default function Articles() {
   const [articles, setArticles] = useState([]);
-
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     getArticles().then((response) => {
       setArticles(response.articles)
+      setLoading(false)
     })
   }, [])
 
+  if(loading){
+    return <p>Loading...</p>
+}
   return (
     <section className="article-container">
       <ul>

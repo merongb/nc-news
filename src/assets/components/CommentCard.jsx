@@ -14,6 +14,9 @@ export default function CommentCard() {
             setLoading(false)
         })
     }, [article_id])
+
+    
+
 if(loading){
     return <p>Loading...</p>
 }
@@ -29,8 +32,9 @@ if(loading){
         <section className="comment-container">
             <h3>Comments</h3>
             <br />
-            <button>Comment</button>
+            <button >Comment</button>
         <ul>
+        <button >Comment</button>
             {comments.map((comment) => (
                 <li key={comment.body + comment.comment_id} className="comment-card" >
                     <h4>{comment.author}</h4>
