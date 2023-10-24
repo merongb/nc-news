@@ -24,3 +24,13 @@ return api.patch(`/articles/${article_id}`, data).then((res) => {
     return res.data
 })
 }
+
+export function getUsers(){
+    return api.get("/users").then((res) => {
+        return res.data
+    })
+}
+
+export function postComment(article_id,commentBody) {
+    return api.post(`/articles/${article_id}/comments`, commentBody)
+}
