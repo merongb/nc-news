@@ -7,7 +7,7 @@ export default function Navbar() {
     return (
 <nav>
   <Link to="/">Articles</Link>
-
+  <Link to="/Topics">Topics</Link>
 </nav>
 	);
 }
