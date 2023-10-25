@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { getCommentByArticleId, postComment, getUsers } from "../../utils";
+import { getCommentByArticleId, postComment } from "../../utils";
 
 export default function CommentCard() {
     const {article_id} = useParams()

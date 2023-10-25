@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getArticleById, updateArticleVotes } from "../../utils";
-import CommentCard from "./CommentCard";
+import CommentCard from "./CommentSection";
 import Voting from "./Voting";
 
 export default function ViewArticle() {
