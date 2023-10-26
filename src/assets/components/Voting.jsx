@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react";
+import {  useState } from "react";
 import { useParams } from "react-router-dom";
-import { getArticleById, updateArticleVotes } from "../../utils";
+import {  updateArticleVotes } from "../../utils";
 
 export default function Voting({setVoteCount}) {
     const {article_id} = useParams()

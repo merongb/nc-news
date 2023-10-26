@@ -43,3 +43,10 @@ export function getTopics(){
         return res.data
     })
 }
+
+export function deleteComment(comment_id) {
+    return api.delete(`/comments/${comment_id}`).then((res) => {
+        res.data = "comment deleted"
+        return res.data
+    })
+}

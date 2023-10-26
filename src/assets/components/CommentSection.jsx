@@ -1,14 +1,15 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getCommentByArticleId, postComment } from "../../utils";
+import { DeleteComment } from "./DeleteComment";
 
-export default function CommentCard() {
+export default function CommentSection({user}) {
     const {article_id} = useParams()
     const [comments, setComments] = useState([])
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState(null) 
     const [commentBody, setCommentBody] = useState("")
-    const [isSubmitting, setIsSubmitting] = useState(false)
+    const [isPosting, setIsPosting] = useState(false)
 
    
     useEffect(() => {
@@ -17,46 +18,46 @@ export default function CommentCard() {
             setLoading(false)
         })
     }, [comments])
-
 const handleSubmit = (e) => {
-
+setIsPosting(true)
 e.preventDefault()
 
-const username = "weegembump"
+const username = user.username
 const body = commentBody
-console.log(body);
 
-if (commentBody.body === ""){
+if (body === ""){
+    setIsPosting(false)
     setError("Enter a comment")
-    setIsSubmitting(false)
     return
     }   
+if (!username){
+    setIsPosting(false)
+    setError("Select a valid user")
+}
     else 
     {
-        setIsSubmitting(true)
 postComment(article_id,{username, body}).then((res)=> {
     e.target[0].value = "";
     setCommentBody("")
     setError(null)
-    console.log(res.data.comment);
     const newComment = {
         ...res.data.comment,
         author: res.data.comment.author,
     };
-    console.log(newComment);
 
     setComments([...comments, newComment])
-    setIsSubmitting(false)
 })
 .catch((err) => {
-    console.log(err);
     if (err.response.data) {
         setError(err.response.data.message);
       } else if (err){
+        console.log(err);
         setError("An error occurred while posting the comment.");
       } else {
         setError(null)
       }
+}).finally(() => {
+    setIsPosting(false)
 })
 }
 }
@@ -72,7 +73,7 @@ if(loading){
         <form onSubmit={handleSubmit}>
                 <input type="text" placeholder="Add a comment..." value={commentBody}
                 onChange={(e) => setCommentBody(e.target.value)}/>
-                <button disabled={isSubmitting}>Comment</button>
+                <button disabled={isPosting}>{isPosting ? "Posting Comment..." : "Comment"}</button>
             </form></section>)
     }   else 
     return (
@@ -82,7 +83,7 @@ if(loading){
             <form id="comment-section" onSubmit={handleSubmit}>
             <input type="text" placeholder="Add a comment..." value={commentBody}
                 onChange={(e) => setCommentBody(e.target.value)}/>
-                <button disabled={isSubmitting}>Comment</button>
+                <button disabled={isPosting}>{isPosting ? "Posting Comment..." : "Comment"}</button>
             </form>
             {error && <p style={{ color: "red" }}>{error}</p>}
         <ul>
@@ -96,8 +97,7 @@ if(loading){
                     <br />
                     Posted {new Date(comment.created_at).toLocaleString()}
                     <br />
-                    <button>♡</button>
-                    <button>👎</button>
+                    {comment.author === user.username && <DeleteComment comment_id={comment.comment_id} />}
                 </li>
             ))}
         </ul>

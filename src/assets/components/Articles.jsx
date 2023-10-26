@@ -35,7 +35,7 @@ export default function Articles() {
       <option value="comment_count">Comments</option>
       </select>
       <select value={order} onChange={changeOrder}>
-        <option value="desc">Descending (defualt)</option>
+        <option value="desc">Descending (default)</option>
         <option value="asc">Ascending</option>
       </select>
       <br />
@@ -54,14 +54,11 @@ export default function Articles() {
             <br />
             {article.votes} Votes
             <br />
-            Article - {article.article_id}
-            <br />
             Published on {new Date(article.created_at).toLocaleString()}
             <br />
             <Link to={`/view-article/${article.article_id}`}>
                 <button>View Article</button>
               </Link>
-          <button>Edit Article</button>
           </li>
         ))}
       </ul>
