@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link} from "react-router-dom";
 import { getArticleById } from "../../utils";
 import CommentSection from "./CommentSection";
 import Voting from "./Voting";
@@ -9,19 +9,30 @@ export default function ViewArticle({user}) {
     const [article, setArticle] = useState({})
     const [voteCount, setVoteCount] = useState(0)
     const [loading, setLoading] = useState(true)
-
+    const [error, setError] = useState("")
 
     useEffect(() => {
         getArticleById(article_id).then((response) => {
             setArticle(response.article)
             setVoteCount(response.article.votes)
             setLoading(false)
+            console.log('hello');
         })
         .catch((error) => {
             setLoading(false)
+            setError(error.response.data.message);
         })
-    }, [])
+    }, [article_id])
+    
 
+if (error){
+    return (
+        <section>
+        <h3>{error}</h3>
+        <p>Return to <button><Link to="/"> Articles</Link></button></p>
+        </section>
+    )
+}
 
 if(loading){
     return <p>Loading...</p>

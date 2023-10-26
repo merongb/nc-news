@@ -12,6 +12,8 @@ export function Topics() {
         })
     }, [])
 
+
+
     return (
         <ul>
             {topics.map((topic) => (
