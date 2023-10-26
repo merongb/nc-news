@@ -7,6 +7,7 @@ import ViewArticle from './assets/components/ViewArticle'
 import { Topics } from './assets/components/Topics'
 import Users from './assets/components/Users'
 import { UnknownPage } from './assets/components/UnknownPage'
+import UserDisplay from './assets/components/UserDisplay'
 
 
 function App() {
@@ -17,6 +18,7 @@ return (
   <>
   <h1>NC News</h1>
   <Navbar/>
+  <UserDisplay user={user} element={UserDisplay}/>
   <Routes>
     <Route path="/" element={<Articles/>}/>
     <Route path="/articles" element={<Articles/>}/>

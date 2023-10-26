@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { getUsers } from "../../utils";
+import { Link } from "react-router-dom";
 
 export default function Users({setCurrentUser}) {
     const [users, setUsers] = useState([])
@@ -13,11 +14,12 @@ export default function Users({setCurrentUser}) {
     function selectUser(e) {
 		const user = users[e.target.id];
 		setCurrentUser(user)
-
 	}
     
 
     return (
+        <section>
+            <p>Return to <button><Link to="/"> Articles</Link></button></p>
         <ul>
             {users.map((user, index) => (
                 <li key={user.username}>
@@ -27,5 +29,6 @@ export default function Users({setCurrentUser}) {
                 </li>
             ))}
         </ul>
+        </section>
     )
 }
