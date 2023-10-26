@@ -1,14 +1,15 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { getArticleById, updateArticleVotes } from "../../utils";
-import CommentCard from "./CommentSection";
+import { getArticleById } from "../../utils";
+import CommentSection from "./CommentSection";
 import Voting from "./Voting";
 
-export default function ViewArticle() {
+export default function ViewArticle({user}) {
     const {article_id} = useParams()
     const [article, setArticle] = useState({})
     const [voteCount, setVoteCount] = useState(0)
     const [loading, setLoading] = useState(true)
+
 
     useEffect(() => {
         getArticleById(article_id).then((response) => {
@@ -17,10 +18,9 @@ export default function ViewArticle() {
             setLoading(false)
         })
         .catch((error) => {
-            console.log(error)
             setLoading(false)
         })
-    }, [article_id])
+    }, [])
 
 
 if(loading){
@@ -38,7 +38,7 @@ if(loading){
         <Voting setVoteCount={setVoteCount}/>
         <p>{article.comment_count} Comments</p>
         </article>
-        <CommentCard/>
+        <CommentSection user={user} />
 </div>
     )
 }

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { getUsers } from "../../utils";
 
-export default function Users() {
+export default function Users({setCurrentUser}) {
     const [users, setUsers] = useState([])
 
     useEffect(() => {
@@ -10,11 +10,20 @@ export default function Users() {
         })
     }, [])
 
+    function selectUser(e) {
+		const user = users[e.target.id];
+		setCurrentUser(user)
+
+	}
+    
+
     return (
         <ul>
-            {users.map((user) => (
+            {users.map((user, index) => (
                 <li key={user.username}>
                     {user.username}
+                    <img src={user.avatar_url} alt={user.avatar_url} />
+                    <button id={index} onClick={selectUser}></button>
                 </li>
             ))}
         </ul>
