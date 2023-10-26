@@ -1,24 +1,44 @@
 import { useState, useEffect } from "react";
 import { getArticles } from "../../utils";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 
 export default function Articles() {
   const [articles, setArticles] = useState([]);
   const [loading, setLoading] = useState(true)
+  const { topic } = useParams()
+  const [sortBy, setSortBy] = useState("created_at")
+  const [order, setOrder] = useState("desc")
 
   useEffect(() => {
-    getArticles().then((response) => {
+    getArticles(topic, sortBy, order).then((response) => {
       setArticles(response.articles)
       setLoading(false)
     })
-  }, [])
+  }, [topic, sortBy, order])
+
+  function changeSortby(event) {
+    setSortBy(event.target.value)
+  }
+  function changeOrder(event) {
+    setOrder(event.target.value)
+  }
 
   if(loading){
     return <p>Loading...</p>
 }
   return (
     <section className="article-container">
+      <select value={sortBy} onChange={changeSortby}> Sort By
+      <option value="created_at">Date Published (default)</option>
+      <option value="votes">Votes</option>
+      <option value="comment_count">Comments</option>
+      </select>
+      <select value={order} onChange={changeOrder}>
+        <option value="desc">Descending (defualt)</option>
+        <option value="asc">Ascending</option>
+      </select>
+      <br />
       <ul>
         {articles.map((article) => (
           <li key={article.article_id+article.article_img_url} className="article-card">

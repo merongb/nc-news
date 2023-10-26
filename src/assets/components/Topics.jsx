@@ -16,7 +16,7 @@ export function Topics() {
         <ul>
             {topics.map((topic) => (
                 <li key={topic.description}>
-                <h1><Link to={topic.slug}>{topic.slug}</Link></h1>
+                <h1><Link to={`/articles/${topic.slug}`}>{topic.slug}</Link></h1>
                 </li>
             ))}
         </ul>
