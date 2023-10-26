@@ -23,7 +23,7 @@ export default function Users({setCurrentUser}) {
                 <li key={user.username}>
                     {user.username}
                     <img src={user.avatar_url} alt={user.avatar_url} />
-                    <button id={index} onClick={selectUser}></button>
+                    <button id={index} onClick={selectUser}>{user.username}</button>
                 </li>
             ))}
         </ul>

@@ -9,12 +9,16 @@ export default function Articles() {
   const { topic } = useParams()
   const [sortBy, setSortBy] = useState("created_at")
   const [order, setOrder] = useState("desc")
+  const [error, setError] = useState(null)
+
 
   useEffect(() => {
     getArticles(topic, sortBy, order).then((response) => {
       setArticles(response.articles)
       setLoading(false)
-    })
+    }).catch((error) => {
+      setError(error.response.data.message);
+  })
   }, [topic, sortBy, order])
 
   function changeSortby(event) {
@@ -23,6 +27,15 @@ export default function Articles() {
   function changeOrder(event) {
     setOrder(event.target.value)
   }
+
+  if (error === "Topic Doesn't Exist!"){
+    return (
+        <section>
+        <h3>{error}</h3>
+        <p>Return to <button><Link to="/topics"> Topics</Link></button></p>
+        </section>
+    )
+}
 
   if(loading){
     return <p>Loading...</p>
