@@ -2,8 +2,10 @@ import axios from "axios"
 
 const api = axios.create({baseURL: "https://news-article-slsk.onrender.com/api"})
 
-export function getArticles(topic) {
+export function getArticles(topic, sortBy, order) {
     const params = topic ? {topic}: {};
+    params.sort_by = sortBy
+    params.order = order
     return api.get('/articles', {params}).then((res) => {
         return res.data
     })
