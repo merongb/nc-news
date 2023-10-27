@@ -52,7 +52,7 @@ export default function Articles() {
         <option value="asc">Ascending</option>
       </select>
       <br />
-      <ul>
+      <ul >
         {articles.map((article) => (
           <li key={article.article_id+article.article_img_url} className="article-card">
           <img src={article.article_img_url} alt={article.title} />

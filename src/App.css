@@ -4,24 +4,25 @@
   margin: none;
 }
 .article-container {
-  display: flex;
+  display: grid;
   flex-direction: row;
-  flex-wrap: wrap;
-  gap: 20px; 
+  flex-wrap: wrap-reverse;
+  gap: none; 
 }
 img {
   max-width: 250px;
 }
 
 .article-card {
-  flex: 1; 
-  border: 1px solid #ccc;
   padding: 10px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  background-color: #fff;
-  border-radius: 4px;
-  max-width: 300px;
-  list-style: none; 
+  margin: 10px;;
+  display: flex;
+  background-color: #2e4167;
+  color: white;
+  font-family: sans-serif;
+  overflow-y:auto;
+  flex-wrap:wrap;
+  border: solid 5px #393838;
 }
 .comment-container {
   display: flex;
@@ -65,5 +66,6 @@ img {
 }
 body {
   margin: none;
-  padding: none
+  padding: none;
+  background-color: #b4b4b4;
 }
