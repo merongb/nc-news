@@ -1,71 +1,65 @@
 
-* {
-  padding: none;
-  margin: none;
-}
-.article-container {
-  display: grid;
-  flex-direction: row;
-  flex-wrap: wrap-reverse;
-  gap: none; 
-}
-img {
-  max-width: 250px;
+
+.articles-list {
+	display: grid;
+	grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 20px;
+  padding: px;
 }
 
 .article-card {
-  padding: 10px;
-  margin: 10px;;
-  display: flex;
-  background-color: #2e4167;
-  color: white;
-  font-family: sans-serif;
-  overflow-y:auto;
-  flex-wrap:wrap;
-  border: solid 5px #393838;
-}
-.comment-container {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  gap: 20px; 
+	padding: 10px;
+	margin: 10px;
+	font-family: sans-serif;
+	border: solid 5px #393838;
+  list-style-type: none;
+  text-align: center;
 }
 
+.artcle-img {
+  width: 100%;
+}
+
+.comment-container {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	gap: 20px;
+}
 
 .comment-card {
-  flex: 1; 
-  border: 1px solid #ccc;
-  padding: 10px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  background-color: #fff;
-  border-radius: 4px;
-  max-width: 300px;
-  list-style: none; 
+	flex: 1;
+	border: 1px solid #ccc;
+	padding: 10px;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+	background-color: #fff;
+	border-radius: 4px;
+	max-width: 300px;
+	list-style: none;
 }
 .header {
-  padding: 10px;
-  margin: 0;
-  background-color: #393838;
-  color: white;
-  font-size: 40px;
-  font-style: italic;
+	padding: 10px;
+	margin: 0;
+	background-color: #393838;
+	color: white;
+	font-size: 40px;
+	font-style: italic;
 }
 .nav-bar {
-  display: flex; 
-  justify-content: flex-end; 
-  background-color: #393838; 
-  padding: 10px;
-
+	display: flex;
+	justify-content: flex-end;
+	background-color: #393838;
+	padding: 10px;
 }
-.nav-link{
-  margin-left: 5%;
-  text-decoration: none; 
-  color: white;
-  font-size: 23px;
-
+.nav-link {
+	margin-left: 5%;
+	text-decoration: none;
+	color: white;
+	font-size: 23px;
 }
 body {
-  margin: none;
-  padding: none;
-  background-color: #b4b4b4;
+	margin: none;
+	padding: none;
+	background-color: #b4b4b4;
 }
+

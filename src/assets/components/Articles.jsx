@@ -52,14 +52,14 @@ export default function Articles() {
         <option value="asc">Ascending</option>
       </select>
       <br />
-      <ul >
+      <ul className='articles-list'>
         {articles.map((article) => (
           <li key={article.article_id+article.article_img_url} className="article-card">
-          <img src={article.article_img_url} alt={article.title} />
+          <img className='artcle-img' src={article.article_img_url} alt={article.title} />
           <br />
             {article.title}
             <br />
-            Author - {article.author}
+            Written by {article.author}
             <br />
             Topic: {article.topic}
             <br />
@@ -70,7 +70,7 @@ export default function Articles() {
             Published on {new Date(article.created_at).toLocaleString()}
             <br />
             <Link to={`/view-article/${article.article_id}`}>
-                <button>View Article</button>
+                <button >View Article</button>
               </Link>
           </li>
         ))}

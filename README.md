@@ -12,7 +12,7 @@ This project is a dynamic and user-centric platform that seamlessly integrates w
 git clone https://github.com/merongb/nc-news
 ```
 
-### 2. Install required packages
+### 2. Install required dependencies
 
 ```
 npm install
