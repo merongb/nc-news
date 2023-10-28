@@ -9,25 +9,31 @@ This project is a dynamic and user-centric platform that seamlessly integrates w
 ### 1. Clone repo
 
 ```
-git clone https://github.com/Proc31/nc-news-fe
-```
+git clone https://github.com/merongb/nc-news
 
 ### 2. Install required packages
 
 ```
+
 npm install
+
 ```
 
 ### 3. Run vite server
 
 ```
+
 npm run dev
+
 ```
 
 ## Version requirements
 
 ```
+
 Node v18.17.1
+
 ```
 
 ### Backend repo - https://github.com/merongb/NC-News-API
+```
