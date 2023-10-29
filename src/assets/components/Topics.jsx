@@ -5,15 +5,19 @@ import { Link } from "react-router-dom";
 
 export function Topics() {
     const [topics, setTopics] = useState([])
+    const [loading, setLoading] = useState(true)
 
     useEffect(() => {
         getTopics().then((res) => {
             setTopics(res.topics)
+            setLoading(false)
         })
     }, [])
 
 
-
+    if(loading){
+        return <div className="loader"></div>
+    }
     return (
         <div className="topic-container">
         <ul className="topic-list">

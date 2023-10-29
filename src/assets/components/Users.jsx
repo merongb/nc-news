@@ -4,10 +4,12 @@ import { Link } from "react-router-dom";
 
 export default function Users({setCurrentUser}) {
     const [users, setUsers] = useState([])
+    const [loading, setLoading] = useState(true)
 
     useEffect(() => {
         getUsers().then((res) => {
             setUsers(res.users)
+            setLoading(false)
         })
     }, [])
 
@@ -15,7 +17,10 @@ export default function Users({setCurrentUser}) {
 		const user = users[e.target.id];
 		setCurrentUser(user)
 	}
-    
+
+    if(loading){
+        return <div className="loader"></div>
+    }
 
     return (
         <section className="user-container">
