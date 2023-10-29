@@ -71,9 +71,9 @@ if(loading){
         <p>Be the first to comment</p>
         <br />
         <form onSubmit={handleSubmit}>
-                <input type="text" placeholder="Add a comment..." value={commentBody}
+                <input className="comment-input" type="text" placeholder="Add a comment..." value={commentBody}
                 onChange={(e) => setCommentBody(e.target.value)}/>
-                <button disabled={isPosting}>{isPosting ? "Posting Comment..." : "Comment"}</button>
+                <button className="comment-button" disabled={isPosting}>{isPosting ? "Posting Comment..." : "Comment"}</button>
             </form></section>)
     }   else 
     return (
@@ -81,9 +81,9 @@ if(loading){
             <h3>Comments</h3>
             <br />
             <form id="comment-section" onSubmit={handleSubmit}>
-            <input type="text" placeholder="Add a comment..." value={commentBody}
+            <input className="comment-input" type="text" placeholder="Add a comment..." value={commentBody}
                 onChange={(e) => setCommentBody(e.target.value)}/>
-                <button disabled={isPosting}>{isPosting ? "Posting Comment..." : "Comment"}</button>
+                <button className="comment-button" disabled={isPosting}>{isPosting ? "Posting Comment..." : "Comment"}</button>
             </form>
             {error && <p style={{ color: "red" }}>{error}</p>}
         <ul>

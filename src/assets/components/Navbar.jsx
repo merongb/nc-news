@@ -1,8 +1,14 @@
 import { Link } from 'react-router-dom';
+import UserDisplay from './UserDisplay';
 
-export default function Navbar() {
+export default function Navbar({user}) {
 	return (
-		<nav className='nav-bar'>
+		<div className='nav-bar'>
+			<div className='left-side'>
+		<h1 className='header'>NC News</h1>
+		</div>
+		<div className='right-side'>
+		<nav >
 			<Link to='/' className='nav-link'>
 				Articles
 			</Link>
@@ -13,5 +19,10 @@ export default function Navbar() {
 				Users
 			</Link>
 		</nav>
+<div className="user-display">
+		<UserDisplay user={user} />
+		</div>
+		</div>		
+		</div>
 	);
 }

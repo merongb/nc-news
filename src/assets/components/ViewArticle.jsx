@@ -38,8 +38,9 @@ if(loading){
     return <p>Loading...</p>
 }
     return (
-        <div>
-        <article className="single-article">
+        <div className="single-article">
+            <div>
+        <article className="article-text">
         <h2>{article.title}</h2>
         <h4>Topic {article.topic}</h4>
         <img src={article.article_img_url} alt="" />
@@ -49,6 +50,7 @@ if(loading){
         <Voting setVoteCount={setVoteCount}/>
         <p>{article.comment_count} Comments</p>
         </article>
+        </div>
         <CommentSection user={user} />
 </div>
     )

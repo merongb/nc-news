@@ -19,9 +19,9 @@ function handleVote(direction) {
 }
     
     return (
-        <div>
-        <button onClick={() => handleVote("upvote")} disabled={voted}>♡</button>
-        <button onClick={() => handleVote("downvote")} disabled={voted}>👎</button>
+        <div className="voting-container">
+        <button className="like-button" onClick={() => handleVote("upvote")} disabled={voted}>♡</button>
+        <button className="dislike-button" onClick={() => handleVote("downvote")} disabled={voted}>👎</button>
 </div>
     )
 }

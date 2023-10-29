@@ -9,16 +9,14 @@ import Users from './assets/components/Users'
 import { UnknownPage } from './assets/components/UnknownPage'
 import UserDisplay from './assets/components/UserDisplay'
 
-
 function App() {
   const [user, setCurrentUser] = useState({})
 
 return (
 
   <>
-  <h1 className='header'>NC News</h1>
-  <Navbar/>
-  <UserDisplay user={user} element={UserDisplay}/>
+  
+  <Navbar user={user}/>
   <Routes>
     <Route path="/" element={<Articles/>}/>
     <Route path="/articles" element={<Articles/>}/>

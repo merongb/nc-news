@@ -18,14 +18,13 @@ export default function Users({setCurrentUser}) {
     
 
     return (
-        <section>
-            <p>Return to <button><Link to="/"> Articles</Link></button></p>
-        <ul>
+        <section className="user-container">
+            <p>Return to <button><Link style={{ textDecoration: "none", color:"white"}} to="/"> Articles</Link></button></p>
+        <ul className='user-list'>
             {users.map((user, index) => (
-                <li key={user.username}>
-                    {user.username}
-                    <img src={user.avatar_url} alt={user.avatar_url} />
-                    <button id={index} onClick={selectUser}>{user.username}</button>
+                <li key={user.username} className="user-card">
+                    <img className='user-img' src={user.avatar_url} alt={user.avatar_url} />
+                    <button className="user-button" id={index} onClick={selectUser}>{user.username}</button>
                 </li>
             ))}
         </ul>
